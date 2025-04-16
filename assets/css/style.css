@@ -1,0 +1,63 @@
+body {
+    font-family: 'VT323', monospace;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+#game {
+    width: 400px;
+    height: 220px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(20, 20px);
+    grid-template-rows: repeat(11, 20px);
+    gap: 1px;
+}
+
+.cell {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+}
+
+.wall {
+    background-color: darkblue;
+}
+
+.dot {
+    background-color: white;
+    border-radius: 50%;
+}
+
+.player {
+    background-color: yellow;
+    border-radius: 50%;
+}
+
+.ghost {
+    background-color: red;
+    border-radius: 50%;
+}
+
+.hidden {
+    display: none;
+}
+
+.message {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.red {
+    color:red;
+}
+.green {
+    color: lime;
+}
+
+.restart-btn {
+    padding: 10px 20px;
+    font-size:18px;
+    margin-top: 10px;
+}
