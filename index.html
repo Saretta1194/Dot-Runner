@@ -18,11 +18,23 @@
       
     <title>Dot Runner</title>
 </head>
+
 <body>
-     <!--Haeder-->
-    <header></header>
-    <!--Main-->
-    <main> </main>
+     <div id="start-screen">
+        <h1>Dot Runner</h1>
+        <button id="start-btn">Start</button>
+     </div>
+
+     <div id="game-container" style="hidden">
+        <h2>Score : <span id="score">0</span></h2>
+        <h2>Life :<span id="lives">3</span></h2>
+        <div id="game"></div>
+        <h2 id="game-over" class="hidden message red">GAME OVER</h2>
+        <h2 id="game-win" class="hidden message green;">YOU WIN</h2>
+        <button id="restart-btn" class="hidden restart-btn">RESTART</button>
+     </div>
+
+     <audio id="bg-music" src="assets/audio/playingmusic.mp3" loop></audio>
 
 
 
@@ -43,6 +55,7 @@
 </footer>
 
       <script src="https://kit.fontawesome.com/acd11ec600.js" crossorigin="anonymous"></script>
+      <script src="assets/js/script.js"></script>
 
 </body>
 </html>
