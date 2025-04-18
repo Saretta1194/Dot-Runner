@@ -110,8 +110,81 @@ function startGame(){
       ghostTimer = setInterval(moveGhost, 500);
 
 }
+/**
+ * Ends the game as win or loss
+ * win - true for victory, false for game over
+ */
 
+function endGame(win = false) {
+    gameActive = false;
+    bgMusic.pause();
+    clearInterval(ghostTimer);
+    document.removeEventListener('keydown', movePlayer);
 
+    if (win) {
+        gameWinDisplay.classList.remove('hidden');    
+    } else {
+        gameOverDisplay.classList.remove('hidden');
+    }
+
+    restartBtn.classList.remove('hidden');
+}
+/**
+ * Handles player movement based on arrow keys
+ */
+function movePlayer(e) {
+    if (!gameActive) return;
+
+    // Remove player class from current cell
+    cells[playerIndex].classList.remove('player');
+    let newIndex = playerIndex;
+
+     // Determine new index based on arrow key pressed
+  switch (e.key) {
+    case 'ArrowLeft':
+      if (playerIndex % width !== 0 && !cells[playerIndex - 1].classList.contains('wall')) {
+        newIndex -= 1;
+      }
+      break;
+    case 'ArrowRight':
+      if (playerIndex % width < width - 1 && !cells[playerIndex + 1].classList.contains('wall')) {
+        newIndex += 1;
+      }
+      break;
+    case 'ArrowUp':
+      if (playerIndex - width >= 0 && !cells[playerIndex - width].classList.contains('wall')) {
+        newIndex -= width;
+      }
+      break;
+    case 'ArrowDown':
+      if (playerIndex + width < layout.length && !cells[playerIndex + width].classList.contains('wall')) {
+        newIndex += width;
+      }
+      break;
+  }
+
+  playerIndex = newIndex;
+
+    // If new cell has a dot, collect it
+    if (cells[playerIndex].classList.contains('dot')) {
+        cells[playerIndex].classList.remove('dot');
+        score++;
+        scoreDisplay.textContent = score;
+    
+        // Check victory: no more dots left
+        if (cells.every(cell => !cell.classList.contains('dot'))) {
+          endGame(true);
+        }
+      }
+    
+      // Check collision with ghost
+      if (playerIndex === ghostIndex) {
+        loseLife();
+      }
+    
+      // Add player class to new cell
+      cells[playerIndex].classList.add('player');
+}
 
 
 
