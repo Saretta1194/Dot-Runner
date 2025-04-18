@@ -215,6 +215,27 @@ function moveGhost() {
     cells[ghostIndex].classList.add('ghost');
 }
 
+/**
+ * Handles losing a life when player and ghost collide
+ */
+
+function loseLife() {
+    lives--;
+    livesDisplay.textContent = lives;
+
+    if (lives <=0){
+        // Game over if no lives remain
+        endGame();
+    } else {
+        // Otherwise reset positions of player and ghost
+        cells[playerIndex].classList.remove('player');
+        cells[ghostIndex].classList.remove('ghost');
+        playerIndex = 21;
+        ghostIndex = 188;
+        cells[playerIndex].classList.add('player');
+        cells[ghostIndex].classList.add('ghost');
+    }
+}
 
 
 
