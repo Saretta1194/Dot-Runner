@@ -75,6 +75,41 @@ function createBoard(){
     }
 }
 
+/**
+ * Initializes and starts the game
+ * - Builds board
+ * - Resets player and ghost positions
+ * - Resets score and lives
+ * - Hides end screens and buttons
+ * - Adds keyboard listener for player movement
+ * - Starts ghost movement interval
+ */
+
+function startGame(){
+    createBoard();
+    playerIndex = 21;
+    ghostIndex = 188;
+    score = 0;
+    lives = 3;
+    gameActive = true;
+   
+    // Update UI displays
+
+    scoreDisplay.textContent = score;
+    livesDisplay.textContent = lives;
+    gameOverDisplay.classList.add('hidden');
+    gameWinDisplay.classList.add('hidden');
+    restartBtn.classList.add('hidden');
+
+      // Place player and ghost on the board
+      cells[playerIndex].classList.add('player');
+      cells[ghostIndex].classList.add('ghost');
+
+      // Listen for arrow key presses
+      document.addEventListener('keydown',movePlayer);
+      ghostTimer = setInterval(moveGhost, 500);
+
+}
 
 
 
