@@ -237,6 +237,22 @@ function loseLife() {
     }
 }
 
+// ==================== Event Listeners ====================
+
+// Start the game when the Start button is clicked
+startBtn.addEventListener('click', ()=>{
+    startScreen.classList.add('hidden');
+    gameContainer.classList.remove('hidden');
+    bgMusic.play();
+    startGame();
+});
+// Restart the game when the Restart button is clicked
+restartBtn.addEventListener('click',() =>{
+    gameOverDisplay.classList.add('hidden');
+    gameWinDisplay.classList.add('hidden');
+    startGame();
+})
+
 
 
 
