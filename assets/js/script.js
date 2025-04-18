@@ -47,6 +47,34 @@ let gameActive = false;
 // Interval ID for ghost movement
 let ghostTimer;
 
+/**
+ * Builds the game board (maze)
+ * - Clears any existing board
+ * - Iterates through layout array
+ * - Creates a div.cell for each entry
+ * - Adds .wall or .dot class based on value
+ * - Stores each cell in cells[] array
+ */
+
+function createBoard(){
+    game.innerHTML = '';
+    cells.length = 0;
+    
+    for (let i = 0; i < layout.length; i++) {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+         // If layout[i] is 1, it's a wall; otherwise, it's a dot
+         if (layout[i]=== 1) {
+            cell.classList.add('wall');
+         } else {
+            cell.classList.add('dot');
+         }
+
+        game.appendChild(cell); 
+        cells.push(cell);
+    }
+}
+
 
 
 
