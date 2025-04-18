@@ -45,8 +45,10 @@ body {
 }
 
 .message {
-    font-size: 24px;
-    margin: 10px 0;
+    font-size: 48px;
+    font-weight: bold;
+    margin: 25px 0;
+    
 }
 
 .red {
@@ -55,9 +57,54 @@ body {
 .green {
     color: lime;
 }
+#start-screen h1 {
+    font-size: 60px;  
+    margin-bottom: 80px;  
+    color: white; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); 
+}
 
-.restart-btn {
-    padding: 10px 20px;
-    font-size:18px;
-    margin-top: 10px;
+#start-btn,
+#restart-btn {
+    padding: 15px 40px;
+    font-size: 50px;
+    background-color: limegreen;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'VT323', monospace;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 40px;
+}
+
+footer {
+    margin-top: 80px;
+}
+
+#start-btn:hover,
+#restart-btn:hover {
+    background-color: lime;
+    transform: scale(1.05);
+}
+
+
+#social-networks {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+#social-networks li a {
+    color: white;
+    font-size: 24px;
+    transition: transform 0.2s, color 0.2s;
+}
+
+#social-networks li a:hover {
+    color: limegreen;
+    transform: scale(1.2);
 }

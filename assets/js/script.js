@@ -101,6 +101,9 @@ function startGame(){
     gameWinDisplay.classList.add('hidden');
     restartBtn.classList.add('hidden');
 
+    document.getElementById('score-container').classList.remove('hidden');
+    document.getElementById('lives-container').classList.remove('hidden');
+
       // Place player and ghost on the board
       cells[playerIndex].classList.add('player');
       cells[ghostIndex].classList.add('ghost');
@@ -250,7 +253,9 @@ startBtn.addEventListener('click', ()=>{
 restartBtn.addEventListener('click',() =>{
     gameOverDisplay.classList.add('hidden');
     gameWinDisplay.classList.add('hidden');
+    bgMusic.play();
     startGame();
+    
 })
 
 
