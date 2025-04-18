@@ -185,6 +185,35 @@ function movePlayer(e) {
       // Add player class to new cell
       cells[playerIndex].classList.add('player');
 }
+/**
+ * Moves ghost randomly but not through walls
+ */
+
+function moveGhost() {
+    const directions = [-1, +1, -width, +width];
+    // Filter out invalid moves (walls or out of bounds)
+    const validMoves = directions.filter(dir => {
+      const target = ghostIndex + dir;
+      return (
+        target >= 0 &&
+        target < layout.length &&
+        !cells[target].classList.contains('wall')
+      );
+    });
+
+     // Remove ghost class from current cell
+  cells[ghostIndex].classList.remove('ghost');
+  // Choose a random valid direction
+  const direction = validMoves[Math.floor(Math.random() * validMoves.length)];
+  ghostIndex += direction; // Update ghost position
+
+  // Check collision with player
+  if (ghostIndex === playerIndex) {
+    loseLife();
+  }
+    // Add ghost class to new cell
+    cells[ghostIndex].classList.add('ghost');
+}
 
 
 
