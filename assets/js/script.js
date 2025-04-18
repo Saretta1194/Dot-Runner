@@ -1,3 +1,6 @@
+// --- DOM Elements ---
+// Selects HTML elements by their IDs
+
 const game = document.getElementById('game');
 const scoreDisplay = document.getElementById('score');
 const livesDisplay = document.getElementById('lives');
@@ -8,3 +11,48 @@ const gameContainer = document.getElementById('game-container');
 const startBtn = document.getElementById('start-btn');
 const restartBtn = document.getElementById('restart-btn');
 const bgMusic = document.getElementById('bg-music');
+
+// --- Game Constants ---
+// Number of columns in the grid
+const width = 20; 
+
+// Layout array 11x20: 1 = wall, 0 = dot
+
+const layout = [
+    1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+  1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+  1,0,1,1,1,1,0,1,1,1,1,1,1,1,0,1,1,1,0,1,
+  1,0,1,0,0,1,0,1,0,0,0,0,0,1,0,1,0,1,0,1,
+  1,0,1,0,1,1,0,1,1,1,1,1,0,1,0,1,0,1,0,1,
+  1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,0,1,
+  1,0,1,1,1,1,1,1,0,1,1,0,1,1,1,1,0,1,0,1,
+  1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,
+  1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,
+  1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+];
+// --- Game State Variables ---
+// Array to store references to each grid cell element
+const cells = [];   
+// Current index of the player in the cells array
+let playerIndex = 21;
+// Current index of the ghost
+let ghostIndex = 188;
+// Player's score
+let score = 0;
+// Remaining lives
+let lives = 3;
+// Flag indicating if the game is active
+let gameActive = false; 
+// Interval ID for ghost movement
+let ghostTimer;
+
+
+
+
+
+
+
+
+
+
