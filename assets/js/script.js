@@ -264,6 +264,7 @@ function loseLife() {
 startBtn.addEventListener('click', ()=>{
     startScreen.classList.add('hidden');
     gameContainer.classList.remove('hidden');
+    document.getElementById('touch-controls').classList.add('visible');
     bgMusic.volume = 0.5; 
     bgMusic.play().catch(err => {
         console.warn("Audio play was blocked by the browser:", err);
@@ -276,6 +277,7 @@ startBtn.addEventListener('click', ()=>{
 restartBtn.addEventListener('click',() =>{
     gameOverDisplay.classList.add('hidden');
     gameWinDisplay.classList.add('hidden');
+    document.getElementById('touch-controls').classList.add('visible');
     bgMusic.currentTime = 0;
     bgMusic.play().catch(err => {
         console.warn("Audio play was blocked on restart:", err);
