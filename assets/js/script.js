@@ -168,6 +168,24 @@ function movePlayer(e) {
 
   playerIndex = newIndex;
 
+  // Touch controls - simulate arrow key presses
+document.getElementById('btn-up').addEventListener('click', () => {
+    movePlayer({ key: 'ArrowUp' });
+  });
+  
+  document.getElementById('btn-down').addEventListener('click', () => {
+    movePlayer({ key: 'ArrowDown' });
+  });
+  
+  document.getElementById('btn-left').addEventListener('click', () => {
+    movePlayer({ key: 'ArrowLeft' });
+  });
+  
+  document.getElementById('btn-right').addEventListener('click', () => {
+    movePlayer({ key: 'ArrowRight' });
+  });
+  
+
     // If new cell has a dot, collect it
     if (cells[playerIndex].classList.contains('dot')) {
         cells[playerIndex].classList.remove('dot');
