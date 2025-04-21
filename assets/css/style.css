@@ -3,22 +3,30 @@ body {
     text-align: center;
     background-color: black;
     color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+   
+    
 }
 
 #game {
-    width: 400px;
-    height: 220px;
     margin: 20px auto;
     display: grid;
-    grid-template-columns: repeat(20, 20px);
+    grid-template-columns: repeat(20, 1fr);
     grid-template-rows: repeat(11, 20px);
     gap: 1px;
+    justify-content: center;
+    flex-grow: 1;
 }
 
+
+
 .cell {
-    width: 20px;
-    height: 20px;
+    width: 60px;
+    height: 60px;
     background-color: black;
+    box-sizing: border-box;
 }
 
 .wall {
@@ -79,7 +87,8 @@ body {
 }
 
 footer {
-    margin-top: 80px;
+    margin-top: auto;
+  
 }
 
 #start-btn:hover,
@@ -126,6 +135,10 @@ footer {
   
   /* Show only on small and medium screens (max 768px) */
   @media screen and (max-width: 768px) {
+    .cell {
+        width: 50px;
+        height: 50px;
+      }
     #touch-controls.visible {
       display: flex;
     }
@@ -134,7 +147,7 @@ footer {
 
 
 
-@media (min-width: 324px) {
+@media (min-width: 224px) {
     #game {
         width: 240px;
         height: 132px;
@@ -244,4 +257,3 @@ footer {
     footer h4 {
         font-size: 16px;
     }
-}
