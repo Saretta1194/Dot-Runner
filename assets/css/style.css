@@ -8,7 +8,10 @@ body {
     min-height: 100vh;
     margin: 0;
    
-    
+}
+h2 {
+    margin-top: 5px;
+    margin-bottom: 30px;
 }
 #game-container {
     display: flex;
@@ -210,13 +213,10 @@ body {
       #touch-controls button:active {
         background-color: #444;
       }
-      
+    
 
   }
   
-
-
-
 @media (min-width: 224px) {
     #game {
         width: 280px;
