@@ -167,23 +167,6 @@ function movePlayer(e) {
   }
 
   playerIndex = newIndex;
-
-  // Touch controls - simulate arrow key presses
-document.getElementById('btn-up').addEventListener('click', () => {
-    movePlayer({ key: 'ArrowUp' });
-  });
-  
-  document.getElementById('btn-down').addEventListener('click', () => {
-    movePlayer({ key: 'ArrowDown' });
-  });
-  
-  document.getElementById('btn-left').addEventListener('click', () => {
-    movePlayer({ key: 'ArrowLeft' });
-  });
-  
-  document.getElementById('btn-right').addEventListener('click', () => {
-    movePlayer({ key: 'ArrowRight' });
-  });
   
 
     // If new cell has a dot, collect it
@@ -257,6 +240,39 @@ function loseLife() {
         cells[ghostIndex].classList.add('ghost');
     }
 }
+// Touch controls - simulate arrow key presses
+document.getElementById('btn-up').addEventListener('click', () => {
+    movePlayer({ key: 'ArrowUp' });
+  });
+  
+  document.getElementById('btn-down').addEventListener('click', () => {
+    movePlayer({ key: 'ArrowDown' });
+  });
+  
+  document.getElementById('btn-left').addEventListener('click', () => {
+    movePlayer({ key: 'ArrowLeft' });
+  });
+  
+  document.getElementById('btn-right').addEventListener('click', () => {
+    movePlayer({ key: 'ArrowRight' });
+  });
+
+  const musicToggle = document.getElementById('music-toggle');
+let musicPlaying = true;
+
+musicToggle.addEventListener('click', () => {
+    if (musicPlaying) {
+        bgMusic.pause();
+        musicToggle.textContent = '🔇';
+    } else {
+        bgMusic.play().catch(err => {
+            console.warn("Audio blocked:", err);
+        });
+        musicToggle.textContent = '🎵';
+    }
+    musicPlaying = !musicPlaying;
+});
+
 
 // ==================== Event Listeners ====================
 
@@ -265,6 +281,8 @@ startBtn.addEventListener('click', ()=>{
     startScreen.classList.add('hidden');
     gameContainer.classList.remove('hidden');
     document.getElementById('touch-controls').classList.add('visible');
+    const musicToggle = document.getElementById('music-toggle');
+    musicToggle.classList.remove('hidden');
     bgMusic.volume = 0.5; 
     bgMusic.play().catch(err => {
         console.warn("Audio play was blocked by the browser:", err);
@@ -288,6 +306,13 @@ restartBtn.addEventListener('click',() =>{
     
 })
 
+function showTouchControlsIfNeeded() {
+    if (window.matchMedia('(max-width:768px').matches){
+        touchControls.classList.remove('hidden');
+     } else {
+        touchControls.classList.add('hidden');
+     }
+}
 
 
 

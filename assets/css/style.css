@@ -6,27 +6,52 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    margin: 0;
    
     
 }
-
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: /*center*/flex-start;
+    padding-top: 60px;
+    flex-grow: 1;
+}
+#game-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-right:30px;
+    margin-right: 30px;
+}
 #game {
-    margin: 20px auto;
+   
     display: grid;
     grid-template-columns: repeat(20, 1fr);
-    grid-template-rows: repeat(11, 20px);
-    gap: 1px;
-    justify-content: center;
-    flex-grow: 1;
+    gap: 2px;
+    max-width: 95vw;
+    width: 100%;
+    aspect-ratio: 20/11 ;
+    margin: 0 auto;
+}
+
+#game-over,
+#game-win 
+ {
+    margin-top:70px ;
+    padding-left: 80px;
+
 }
 
 
 
 .cell {
-    width: 60px;
-    height: 60px;
+    width: 100%;
+    aspect-ratio: 1/1;
     background-color: black;
-    box-sizing: border-box;
+   
 }
 
 .wall {
@@ -74,7 +99,8 @@ body {
 
 #start-btn,
 #restart-btn {
-    padding: 15px 40px;
+    padding:20px;
+    margin-left:0;
     font-size: 50px;
     background-color: limegreen;
     color: black;
@@ -85,16 +111,30 @@ body {
     transition: background-color 0.3s, transform 0.2s;
     margin-top: 40px;
 }
-
-footer {
-    margin-top: auto;
-  
-}
-
 #start-btn:hover,
 #restart-btn:hover {
     background-color: lime;
     transform: scale(1.05);
+}
+
+#music-toggle {
+    background: none;
+    border: none;
+    font-size: 36px;
+    cursor: pointer;
+    color: white;
+    margin: 10px;
+    transition: transform 0.2s;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    
+}
+
+#music-toggle:hover {
+    transform: scale(1.2);
+    color: limegreen;
 }
 
 
@@ -119,29 +159,59 @@ footer {
 }
 
 #touch-controls {
-    margin-top: 20px;
+    
+ 
     display: none;
-    flex-direction: column;
     align-items: center;
     gap: 10px;
+    flex-direction: column;
+    margin:20px 0;
+  }
+  #touch-controls.hidden {
+    display: none;
   }
   
+  footer {
+    margin-top: auto;
   
-  #touch-controls button {
-    padding: 15px;
-    font-size: 20px;
-    border-radius: 8px;
-  }
+}
+  
+  
   
   /* Show only on small and medium screens (max 768px) */
   @media screen and (max-width: 768px) {
     .cell {
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
       }
     #touch-controls.visible {
       display: flex;
+      padding: 100px;
     }
+
+    #touch-controls div {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+      }
+      #touch-controls button {
+        width: 60px;
+        height: 60px;
+        background-color:#222 ;
+        color: #fff;
+        border: 2px solid #fff;
+        font-size: 24px;
+        border-radius: 10px;
+        margin: 5px;
+        padding: 10px 20px;
+        font-family: 'VT323', monospace;
+        cursor: pointer;
+      }
+      #touch-controls button:active {
+        background-color: #444;
+      }
+      
+
   }
   
 
@@ -149,45 +219,8 @@ footer {
 
 @media (min-width: 224px) {
     #game {
-        width: 240px;
+        width: 280px;
         height: 132px;
-        grid-template-columns: repeat(20, 12px);
-        grid-template-rows: repeat(11, 12px);
-    }
-
-    .cell {
-        width: 12px;
-        height: 12px;
-    }
-
-    #start-btn,
-    #restart-btn {
-        font-size: 28px;
-        padding: 8px 20px;
-    }
-
-    #start-screen h1 {
-        font-size: 40px;
-    }
-
-    .message {
-        font-size: 28px;
-    }
-
-    h2 {
-        font-size: 18px;
-    }
-
-    #social-networks {
-        flex-direction: row;
-    }
-}
-
-
-@media (min-width: 769px) {
-    #game {
-        width: 300px;
-        height: 165px;
         grid-template-columns: repeat(20, 15px);
         grid-template-rows: repeat(11, 15px);
     }
@@ -199,9 +232,53 @@ footer {
 
     #start-btn,
     #restart-btn {
+        font-size: 50px;
+        padding: 8px 20px;
+    }
+
+    #start-screen h1 {
+        font-size: 60px;
+    }
+
+    .message {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    #social-networks {
+        flex-direction: row;
+    }
+} 
+
+
+@media (min-width: 769px) {
+    #game {
+        width: 600px;
+        height: 330px;
+        grid-template-columns: repeat(20, 30px);
+        grid-template-rows: repeat(11, 30px);
+    }
+    #touch-controls {
+        display: none;
+    }
+    .cell {
+        width: 30px;
+        height: 30px;
+    }
+
+    #start-btn,
+    #restart-btn {
         font-size: 36px;
         padding: 10px 30px;
         margin-top: 35px;
+
+    }
+    #restart-btn{
+        margin-left:80px;
+
     }
 
     .message {
@@ -219,15 +296,15 @@ footer {
 
 @media (min-width: 1025px) {
     #game {
-        width: 400px;
-        height: 220px;
-        grid-template-columns: repeat(20, 20px);
-        grid-template-rows: repeat(11, 20px);
+        width: 800px;
+        height: 440px;
+        grid-template-columns: repeat(20, 40px);
+        grid-template-rows: repeat(11, 40px);
     }
 
     .cell {
-        width: 20px;
-        height: 20px;
+        width: 40px;
+        height: 40px;
     }
 
     #start-btn,
@@ -257,3 +334,4 @@ footer {
     footer h4 {
         font-size: 16px;
     }
+}

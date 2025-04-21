@@ -25,14 +25,27 @@
         <button id="start-btn">Start</button>
      </div>
 
+     <button id="music-toggle" class="music-btn hidden">🔇</button>
+        <audio id="background-music" loop>
+        <source src="assets/audio/playing-pac-man-6783.mp3" type= "audio/mpeg">
+         Your browser does not support the audio element.
+        </audio>
+
+
      <div id="game-container" class= "hidden">
         <h2 id="score-container" class="hidden">Score : <span id="score" >0</span></h2>
         <h2 id="lives-container" class="hidden">Life :<span id="lives">3</span></h2>
+        
+        <div id="game-wrapper">
+
         <div id="game"></div>
+
         <h2 id="game-over" class="hidden message red">GAME OVER</h2>
         <h2 id="game-win" class="hidden message green;">YOU WIN</h2>
         <button id="restart-btn" class="hidden restart-btn">RESTART</button>
      </div>
+
+
 
      <div id="touch-controls" class="hidden">
         <button id="btn-up">↑</button>
@@ -42,6 +55,7 @@
           <button id="btn-right">→</button>
         </div>
       </div>
+    </div>
       
 
      <audio id="bg-music" src="assets/audio/playing-pac-man-6783.mp3" loop></audio>
