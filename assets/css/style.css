@@ -166,8 +166,7 @@ footer {
 }
 
 /* Page 404 Error */
-#error {
-body {
+.error {
     margin: 0;
     padding: 0;
     background-color: #000;
@@ -179,19 +178,18 @@ body {
     align-items: center;
     height: 100vh;
     text-align: center;
-  }
+}
   
-  h1 {
-    font-size: 100px;
+  .error h1 {
+    font-size: 150px;
     margin: 0;
   }
-  
-  p {
-    font-size: 30px;
+  .error p {
+    font-size: 100px;
     margin: 20px 0;
   }
   
-  a {
+  .error a {
     color: yellow;
     text-decoration: none;
     font-size: 28px;
@@ -199,17 +197,12 @@ body {
     padding: 10px 20px;
     margin-top: 20px;
     display: inline-block;
-    border-radius: 8px;
+    border-radius: 20px;
     transition: all 0.2s ease;
   }
-  
-  a:hover {
-    background-color: yellow;
-    color: black;
-  }
-  
+
   .dot {
-    font-size: 50px;
+    font-size: 75px;
     animation: blink 1s infinite;
   }
   
@@ -217,7 +210,7 @@ body {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
   }
-}
+
 
 
 
