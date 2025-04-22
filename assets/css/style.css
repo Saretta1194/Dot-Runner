@@ -7,54 +7,43 @@ body {
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
-   
 }
+
 h2 {
     margin-top: 5px;
     margin-bottom: 30px;
 }
+
 #game-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: /*center*/flex-start;
+    justify-content: flex-start;
     padding-top: 60px;
     flex-grow: 1;
 }
+
 #game-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    padding-right:30px;
-    margin-right: 30px;
 }
+
 #game {
-   
     display: grid;
     grid-template-columns: repeat(20, 1fr);
     gap: 2px;
+    width: clamp(280px, 90vw, 800px);
     max-width: 95vw;
-    width: 100%;
-    aspect-ratio: 20/11 ;
+    aspect-ratio: 20/11;
     margin: 0 auto;
 }
 
-#game-over,
-#game-win 
- {
-    margin-top:70px ;
-    padding-left: 80px;
-
-}
-
-
-
 .cell {
     width: 100%;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1 / 1;
     background-color: black;
-   
 }
 
 .wall {
@@ -84,26 +73,26 @@ h2 {
     font-size: 48px;
     font-weight: bold;
     margin: 25px 0;
-    
 }
 
 .red {
-    color:red;
+    color: red;
 }
+
 .green {
     color: lime;
 }
+
 #start-screen h1 {
-    font-size: 60px;  
-    margin-bottom: 80px;  
-    color: white; 
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); 
+    font-size: 60px;
+    margin-bottom: 80px;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
 }
 
 #start-btn,
 #restart-btn {
-    padding:20px;
-    margin-left:0;
+    padding: 20px;
     font-size: 50px;
     background-color: limegreen;
     color: black;
@@ -114,6 +103,8 @@ h2 {
     transition: background-color 0.3s, transform 0.2s;
     margin-top: 40px;
 }
+
+
 #start-btn:hover,
 #restart-btn:hover {
     background-color: lime;
@@ -131,15 +122,12 @@ h2 {
     position: absolute;
     top: 20px;
     right: 20px;
-
-    
 }
 
 #music-toggle:hover {
     transform: scale(1.2);
     color: limegreen;
 }
-
 
 #social-networks {
     display: flex;
@@ -162,45 +150,42 @@ h2 {
 }
 
 #touch-controls {
-    
- 
     display: none;
     align-items: center;
     gap: 10px;
     flex-direction: column;
-    margin:20px 0;
-  }
-  #touch-controls.hidden {
-    display: none;
-  }
-  
-  footer {
-    margin-top: auto;
-  
+    margin: 20px 0;
 }
-  
-  
-  
-  /* Show only on small and medium screens (max 768px) */
-  @media screen and (max-width: 768px) {
+
+#touch-controls.hidden {
+    display: none;
+}
+
+footer {
+    margin-top: auto;
+}
+
+@media screen and (max-width: 768px) {
     .cell {
-        width: 60px;
-        height: 60px;
-      }
+        width: 100%;
+        aspect-ratio: 1/1;
+    }
+
     #touch-controls.visible {
-      display: flex;
-      padding: 100px;
+        display: flex;
+        padding: 100px;
     }
 
     #touch-controls div {
         display: flex;
         gap: 10px;
         justify-content: center;
-      }
-      #touch-controls button {
+    }
+
+    #touch-controls button {
         width: 60px;
         height: 60px;
-        background-color:#222 ;
+        background-color: #222;
         color: #fff;
         border: 2px solid #fff;
         font-size: 24px;
@@ -209,129 +194,9 @@ h2 {
         padding: 10px 20px;
         font-family: 'VT323', monospace;
         cursor: pointer;
-      }
-      #touch-controls button:active {
+    }
+
+    #touch-controls button:active {
         background-color: #444;
-      }
-    
-
-  }
-  
-@media (min-width: 224px) {
-    #game {
-        width: 280px;
-        height: 132px;
-        grid-template-columns: repeat(20, 15px);
-        grid-template-rows: repeat(11, 15px);
-    }
-
-    .cell {
-        width: 15px;
-        height: 15px;
-    }
-
-    #start-btn,
-    #restart-btn {
-        font-size: 50px;
-        padding: 8px 20px;
-    }
-
-    #start-screen h1 {
-        font-size: 60px;
-    }
-
-    .message {
-        font-size: 28px;
-    }
-
-    h2 {
-        font-size: 25px;
-    }
-
-    #social-networks {
-        flex-direction: row;
-    }
-} 
-
-
-@media (min-width: 769px) {
-    #game {
-        width: 600px;
-        height: 330px;
-        grid-template-columns: repeat(20, 30px);
-        grid-template-rows: repeat(11, 30px);
-    }
-    #touch-controls {
-        display: none;
-    }
-    .cell {
-        width: 30px;
-        height: 30px;
-    }
-
-    #start-btn,
-    #restart-btn {
-        font-size: 36px;
-        padding: 10px 30px;
-        margin-top: 35px;
-
-    }
-    #restart-btn{
-        margin-left:80px;
-
-    }
-
-    .message {
-        font-size: 36px;
-    }
-
-    #start-screen h1 {
-        font-size: 50px;
-    }
-
-    #social-networks li a {
-        font-size: 22px;
-    }
-}
-
-@media (min-width: 1025px) {
-    #game {
-        width: 800px;
-        height: 440px;
-        grid-template-columns: repeat(20, 40px);
-        grid-template-rows: repeat(11, 40px);
-    }
-
-    .cell {
-        width: 40px;
-        height: 40px;
-    }
-
-    #start-btn,
-    #restart-btn {
-        font-size: 50px;
-        padding: 15px 40px;
-        margin-top: 40px;
-    }
-
-    .message {
-        font-size: 48px;
-    }
-
-    #start-screen h1 {
-        font-size: 60px;
-        margin-bottom: 80px;
-    }
-
-    h2 {
-        font-size: 24px;
-    }
-
-    #social-networks li a {
-        font-size: 24px;
-    }
-
-    footer h4 {
-        font-size: 16px;
     }
 }
