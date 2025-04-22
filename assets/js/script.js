@@ -11,6 +11,8 @@ const gameContainer = document.getElementById('game-container');
 const startBtn = document.getElementById('start-btn');
 const restartBtn = document.getElementById('restart-btn');
 const bgMusic = document.getElementById('bg-music');
+const touchControls = document.getElementById('touch-controls');
+
 
 // --- Game Constants ---
 // Number of columns in the grid
@@ -273,6 +275,9 @@ musicToggle.addEventListener('click', () => {
     musicPlaying = !musicPlaying;
 });
 
+window.addEventListener('load', showTouchControlsIfNeeded);
+window.addEventListener('resize', showTouchControlsIfNeeded);
+
 
 // ==================== Event Listeners ====================
 
@@ -304,10 +309,10 @@ restartBtn.addEventListener('click',() =>{
     gameWinDisplay.classList.add('hidden');
     startGame();
     
-})
+});
 
 function showTouchControlsIfNeeded() {
-    if (window.matchMedia('(max-width:768px').matches){
+    if (window.matchMedia('(max-width:768px)').matches){
         touchControls.classList.remove('hidden');
      } else {
         touchControls.classList.add('hidden');
